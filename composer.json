@@ -8,5 +8,10 @@
 			"name": "Will Mason",
 			"email": "the@dubhunter.com"
 		}
-	]
+	],
+	"autoload": {
+		"psr-0": {
+			"Talon": "src/"
+		}
+	}
 }

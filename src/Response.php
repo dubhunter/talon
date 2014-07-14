@@ -1,6 +1,6 @@
 <?php
 
-namespace dubhunter\Talon;
+namespace Talon;
 
 use Phalcon\Http\Response as PhalconResponse;
 

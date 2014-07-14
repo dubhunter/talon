@@ -1,6 +1,6 @@
 <?php
 
-namespace dubhunter\Talon;
+namespace Talon;
 
 class TwimlResponse extends Response {
 
