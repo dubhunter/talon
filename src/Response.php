@@ -2,7 +2,9 @@
 
 namespace Talon;
 
-class Response extends \Phalcon\Http\Response {
+use Phalcon\Http\Response as PhalconResponse;
+
+class Response extends PhalconResponse {
 	/**
 	 * @const int OK HTTP Response Code for OK
 	 */

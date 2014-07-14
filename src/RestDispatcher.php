@@ -2,7 +2,9 @@
 
 namespace Talon;
 
-class RestDispatcher extends \Phalcon\Mvc\Dispatcher {
+use Phalcon\Mvc\Dispatcher;
+
+class RestDispatcher extends Dispatcher {
 
 	public function __construct() {
 		parent::__construct();

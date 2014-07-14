@@ -2,7 +2,7 @@
 
 namespace Talon;
 
-use \Phalcon\Image\Adapter as Image;
+use Phalcon\Image\Adapter as Image;
 
 class ImageResponse extends Response {
 

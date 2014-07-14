@@ -2,7 +2,9 @@
 
 namespace Talon;
 
-class RestRequest extends \Phalcon\Http\Request {
+use Phalcon\Http\Request;
+
+class RestRequest extends Request {
 
 	public function getJsonRawBody() {
 		return json_decode($this->getRawBody(), true);
