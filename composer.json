@@ -1,7 +1,7 @@
 {
 	"name": "dubhunter/talon",
 	"description": "Phalcon PHP framework tools for RESTful development.",
-	"minimum-stability": "dev",
+	"minimum-stability": "stable",
 	"license": "Apache-2.0",
 	"authors": [
 		{
