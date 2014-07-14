@@ -1,6 +1,6 @@
 <?php
 
-namespace Talon;
+namespace dubhunter\Talon;
 
 class Http {
 

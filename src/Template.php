@@ -1,6 +1,6 @@
 <?php
 
-namespace Talon;
+namespace dubhunter\Talon;
 
 use Phalcon\Mvc\ViewInterface;
 use Phalcon\Mvc\View\Simple as View;

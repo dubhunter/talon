@@ -1,6 +1,6 @@
 <?php
 
-namespace Talon;
+namespace dubhunter\Talon;
 
 use Phalcon\Image\Adapter as Image;
 
