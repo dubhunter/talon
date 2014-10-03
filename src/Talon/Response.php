@@ -66,6 +66,35 @@ class Response extends PhalconResponse {
 	const HTTP_INTERNAL_SERVER_ERROR = 500;
 
 	/**
+	 * @var array
+	 */
+	protected static $defaultHeaders = array();
+
+	/**
+	 * Get the default headers that will be included in every response
+	 */
+	public static function getDefaultHeaders() {
+		return self::$defaultHeaders;
+	}
+
+	/**
+	 * Set the default headers to be included in every response
+	 * @param $headers
+	 */
+	public static function setDefaultHeaders($headers) {
+		self::$defaultHeaders = $headers;
+	}
+
+	/**
+	 * Set a default header to be included in every response
+	 * @param $name
+	 * @param $value
+	 */
+	public static function addDefaultHeader($name, $value) {
+		self::$defaultHeaders[$name] = $value;
+	}
+
+	/**
 	 * Factory function for creating a Response with a specific HTTP Status Code
 	 * @static
 	 * @param int $code HTTP Status Code
@@ -216,7 +245,7 @@ class Response extends PhalconResponse {
 			$this->setStatusCode($code, $status);
 		}
 
-		foreach ($headers as $name => $value) {
+		foreach (array_merge(self::$defaultHeaders, $headers) as $name => $value) {
 			$this->setHeader($name, $value);
 		}
 	}
