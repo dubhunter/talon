@@ -11,9 +11,8 @@ class ImageResponse extends Response {
 	 * @return \Phalcon\Http\ResponseInterface|void
 	 */
 	public function setContent($content) {
-		$this->setContentType($content->getMime());
-
 		if ($content instanceof Image) {
+			$this->setContentType($content->getMime());
 			$content = $content->render();
 		}
 		parent::setContent($content);
