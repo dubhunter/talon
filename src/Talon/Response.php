@@ -210,7 +210,7 @@ class Response extends PhalconResponse {
 	public static function permanentRedirect($url) {
 		/** @var Response $response */
 		$response = new static();
-		$response->redirect($url, null, self::HTTP_PERMANENT_REDIRECT);
+		$response->redirect($url, true, self::HTTP_PERMANENT_REDIRECT);
 		return $response;
 	}
 
@@ -224,7 +224,7 @@ class Response extends PhalconResponse {
 	public static function temporaryRedirect($url) {
 		/** @var Response $response */
 		$response = new static();
-		$response->redirect($url, null, self::HTTP_TEMPORARY_REDIRECT);
+		$response->redirect($url, true, self::HTTP_TEMPORARY_REDIRECT);
 		return $response;
 	}
 
