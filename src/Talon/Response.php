@@ -61,6 +61,11 @@ class Response extends PhalconResponse {
 	const HTTP_METHOD_NOT_ALLOWED = 405;
 
 	/**
+	 * @const int TOO_MANY_REQUESTS HTTP Response Code for too many requests
+	 */
+	const HTTP_TOO_MANY_REQUESTS = 429;
+
+	/**
 	 * @const int INTERNAL_SERVER_ERROR HTTP Response Code for server error
 	 */
 	const HTTP_INTERNAL_SERVER_ERROR = 500;
@@ -125,28 +130,6 @@ class Response extends PhalconResponse {
 	}
 
 	/**
-	 * Convenience function to create a 404 response
-	 * @see Response::code()
-	 * @static
-	 * @param null|string $content Optional 404 Response Content
-	 * @return Response HTTP 404 Response
-	 */
-	public static function notFound($content = null) {
-		return static::code(self::HTTP_NOT_FOUND, $content);
-	}
-
-	/**
-	 * Convenience function to create a 405 response
-	 * @see Response::code()
-	 * @static
-	 * @param null|string $content Optional 405 Response Content
-	 * @return Response HTTP 405 Response
-	 */
-	public static function methodNotAllowed($content = null) {
-		return static::code(self::HTTP_METHOD_NOT_ALLOWED, $content);
-	}
-
-	/**
 	 * Convenience function to create a 304 response
 	 * @see Response::code()
 	 * @static
@@ -154,17 +137,6 @@ class Response extends PhalconResponse {
 	 */
 	public static function notModified() {
 		return static::code(self::HTTP_NOT_MODIFIED);
-	}
-
-	/**
-	 * Convenience function to create a 500 response
-	 * @see Response::code()
-	 * @static
-	 * @param null|string $message Optional message for the error
-	 * @return Response HTTP 500 Response with optional message
-	 */
-	public static function error($message = null) {
-		return static::code(self::HTTP_INTERNAL_SERVER_ERROR, $message);
 	}
 
 	/**
@@ -198,6 +170,50 @@ class Response extends PhalconResponse {
 	 */
 	public static function forbidden($message = null) {
 		return static::code(self::HTTP_FORBIDDEN, $message);
+	}
+
+	/**
+	 * Convenience function to create a 404 response
+	 * @see Response::code()
+	 * @static
+	 * @param null|string $content Optional 404 Response Content
+	 * @return Response HTTP 404 Response
+	 */
+	public static function notFound($content = null) {
+		return static::code(self::HTTP_NOT_FOUND, $content);
+	}
+
+	/**
+	 * Convenience function to create a 405 response
+	 * @see Response::code()
+	 * @static
+	 * @param null|string $content Optional 405 Response Content
+	 * @return Response HTTP 405 Response
+	 */
+	public static function methodNotAllowed($content = null) {
+		return static::code(self::HTTP_METHOD_NOT_ALLOWED, $content);
+	}
+
+	/**
+	 * Convenience function to create a 429 response
+	 * @see Response::code()
+	 * @static
+	 * @param null|string $content Optional 429 Response Content
+	 * @return Response HTTP 429 Response
+	 */
+	public static function tooManyRequests($content = null) {
+		return static::code(self::HTTP_TOO_MANY_REQUESTS, $content);
+	}
+
+	/**
+	 * Convenience function to create a 500 response
+	 * @see Response::code()
+	 * @static
+	 * @param null|string $message Optional message for the error
+	 * @return Response HTTP 500 Response with optional message
+	 */
+	public static function error($message = null) {
+		return static::code(self::HTTP_INTERNAL_SERVER_ERROR, $message);
 	}
 
 	/**
