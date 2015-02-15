@@ -13,8 +13,5 @@
 		"psr-0": {
 			"Talon": "src/"
 		}
-	},
-	"require": {
-		"guzzle/guzzle": "v3.9.2"
 	}
 }
