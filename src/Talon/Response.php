@@ -76,6 +76,16 @@ class Response extends PhalconResponse {
 	protected static $defaultHeaders = array();
 
 	/**
+	 * @var int
+	 */
+	protected $statusCode;
+
+	/**
+	 * @var string
+	 */
+	protected $statusMessage;
+
+	/**
 	 * Get the default headers that will be included in every response
 	 */
 	public static function getDefaultHeaders() {
@@ -257,13 +267,40 @@ class Response extends PhalconResponse {
 		}
 
 		if ($code) {
-			$status = Http::getStatusMessage($code);
-			$this->setStatusCode($code, $status);
+			$this->setStatusCode($code);
 		}
 
 		foreach (array_merge(self::$defaultHeaders, $headers) as $name => $value) {
 			$this->setHeader($name, $value);
 		}
+	}
+
+	/**
+	 * @param int $code
+	 * @param null $message
+	 * @return Response
+	 */
+	public function setStatusCode($code, $message = null) {
+		if (!$message) {
+			$message = Http::getStatusMessage($code);
+		}
+		$this->statusCode = $code;
+		$this->statusMessage = $message;
+		return parent::setStatusCode($this->statusCode, $this->statusMessage);
+	}
+
+	/**
+	 * @return int
+	 */
+	public function getStatusCode() {
+		return $this->statusCode;
+	}
+
+	/**
+	 * @return string
+	 */
+	public function getStatusMessage() {
+		return $this->statusMessage;
 	}
 
 	/**
