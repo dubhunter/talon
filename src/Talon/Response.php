@@ -231,12 +231,13 @@ class Response extends PhalconResponse {
 	 * @see Response::redirect()
 	 * @static
 	 * @param string $url The url to redirect to
+	 * @param boolean $externalRedirect Treat the redirect as external
 	 * @return Response
 	 */
-	public static function permanentRedirect($url) {
+	public static function permanentRedirect($url, $externalRedirect = false) {
 		/** @var Response $response */
 		$response = new static();
-		$response->redirect($url, true, self::HTTP_PERMANENT_REDIRECT);
+		$response->redirect($url, $externalRedirect, self::HTTP_PERMANENT_REDIRECT);
 		return $response;
 	}
 
@@ -245,12 +246,13 @@ class Response extends PhalconResponse {
 	 * @see Response::redirect()
 	 * @static
 	 * @param string $url The url to redirect to
+	 * @param boolean $externalRedirect Treat the redirect as external
 	 * @return Response HTTP 302 Response with URL
 	 */
-	public static function temporaryRedirect($url) {
+	public static function temporaryRedirect($url, $externalRedirect = false) {
 		/** @var Response $response */
 		$response = new static();
-		$response->redirect($url, true, self::HTTP_TEMPORARY_REDIRECT);
+		$response->redirect($url, $externalRedirect, self::HTTP_TEMPORARY_REDIRECT);
 		return $response;
 	}
 
