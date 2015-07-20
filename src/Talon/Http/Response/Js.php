@@ -2,6 +2,7 @@
 
 namespace Talon\Http\Response;
 
+use Talon\Http\Response;
 use Talon\Mvc\View\Template;
 
 class Js extends Response {

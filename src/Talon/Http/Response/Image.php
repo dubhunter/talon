@@ -2,6 +2,7 @@
 
 namespace Talon\Http\Response;
 
+use Talon\Http\Response;
 use Phalcon\Image\Adapter as ImageAdapter;
 
 class Image extends Response {
