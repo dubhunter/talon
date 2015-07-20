@@ -1,8 +1,10 @@
 <?php
 
-namespace Talon;
+namespace Talon\Http\Response;
 
 use Phalcon\Http\Response as PhalconResponse;
+use Talon\Http;
+use Talon\Mvc\View\Template;
 
 class Response extends PhalconResponse {
 	/**

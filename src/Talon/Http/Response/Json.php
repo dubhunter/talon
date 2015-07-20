@@ -1,8 +1,10 @@
 <?php
 
-namespace Talon;
+namespace Talon\Http\Response;
 
-class JsonResponse extends Response {
+use Talon\Mvc\View\Template;
+
+class Json extends Response {
 
 	/**
 	 * @param string|Template $content

@@ -1,11 +1,11 @@
 <?php
 
-namespace Talon;
+namespace Talon\Mvc\View\Engine\Volt;
 
 use Phalcon\Text;
 use Phalcon\Mvc\View\Engine\Volt\Compiler as VoltCompiler;
 
-abstract class VoltFilterCollection {
+abstract class FunctionCollection {
 
 	/**
 	 * @param VoltCompiler $compiler
@@ -13,7 +13,7 @@ abstract class VoltFilterCollection {
 	public static function install($compiler) {
 		foreach (get_class_methods(get_called_class()) as $method) {
 			if ($method != __METHOD__) {
-				$compiler->addFilter(Text::uncamelize($method), function ($resolvedArgs, $exprArgs) use ($method) {
+				$compiler->addFunction(Text::uncamelize($method), function ($resolvedArgs, $exprArgs) use ($method) {
 					return get_called_class() . '::' . $method . '(' . $resolvedArgs . ')';
 				});
 			}

@@ -1,6 +1,6 @@
 <?php
 
-namespace Talon;
+namespace Talon\Mvc;
 
 use Phalcon\Mvc\Dispatcher;
 

@@ -1,6 +1,6 @@
 <?php
 
-namespace Talon;
+namespace Talon\Http;
 
 use Phalcon\Http\Request;
 

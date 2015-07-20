@@ -1,6 +1,6 @@
 <?php
 
-namespace Talon;
+namespace Talon\Mvc\View;
 
 use Phalcon\Mvc\ViewInterface;
 use Phalcon\Mvc\View\Simple as View;
@@ -47,7 +47,7 @@ class Template {
 	}
 
 	/**
-	 * Adds a value to a collection, collection will be created if it doesn't already exist
+	 * Adds a value to a collection, collection will be created if it does not already exist
 	 * @param string $key The collection key
 	 * @param $value
 	 */

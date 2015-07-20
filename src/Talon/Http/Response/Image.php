@@ -1,17 +1,17 @@
 <?php
 
-namespace Talon;
+namespace Talon\Http\Response;
 
-use Phalcon\Image\Adapter as Image;
+use Phalcon\Image\Adapter as ImageAdapter;
 
-class ImageResponse extends Response {
+class Image extends Response {
 
 	/**
-	 * @param Image|string $content
+	 * @param ImageAdapter|string $content
 	 * @return \Phalcon\Http\ResponseInterface|void
 	 */
 	public function setContent($content) {
-		if ($content instanceof Image) {
+		if ($content instanceof ImageAdapter) {
 			$this->setContentType($content->getMime());
 			$content = $content->render();
 		}

@@ -1,15 +1,17 @@
 <?php
 
-namespace Talon;
+namespace Talon\Http\Response;
 
-class TwimlResponse extends Response {
+use Talon\Mvc\View\Template;
+
+class Css extends Response {
 
 	/**
 	 * @param string|Template $content
 	 * @return \Phalcon\Http\ResponseInterface|void
 	 */
 	public function setContent($content) {
-		$this->setContentType('application/xml');
+		$this->setContentType('text/css');
 		parent::setContent($content);
 	}
 

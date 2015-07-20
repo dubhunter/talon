@@ -1,15 +1,17 @@
 <?php
 
-namespace Talon;
+namespace Talon\Http\Response;
 
-class CssResponse extends Response {
+use Talon\Mvc\View\Template;
+
+class Js extends Response {
 
 	/**
 	 * @param string|Template $content
 	 * @return \Phalcon\Http\ResponseInterface|void
 	 */
 	public function setContent($content) {
-		$this->setContentType('text/css');
+		$this->setContentType('application/javascript');
 		parent::setContent($content);
 	}
 

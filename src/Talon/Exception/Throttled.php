@@ -1,8 +1,8 @@
 <?php
 
-namespace Talon;
+namespace Talon\Exception;
 
-class ThrottledException extends TooManyRequestsException {
+class Throttled extends TooManyRequests {
 
 	/**
 	 * @var int
