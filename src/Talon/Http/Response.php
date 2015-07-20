@@ -3,6 +3,7 @@
 namespace Talon\Http;
 
 use Phalcon\Http\Response as PhalconResponse;
+use Talon\Http;
 use Talon\Mvc\View\Template;
 
 class Response extends PhalconResponse {
