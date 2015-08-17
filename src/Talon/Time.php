@@ -9,7 +9,9 @@ class Time {
 			$timestamp = strtotime($timestamp);
 		}
 
-		return strtotime('1970-01-01 ' . $timestamp ? date('H:i:s', $timestamp) : date('H:i:s'));
+		$time = $timestamp ? date('H:i:s', $timestamp) : date('H:i:s');
+
+		return strtotime('1970-01-01 ' . $time);
 	}
 
 }
