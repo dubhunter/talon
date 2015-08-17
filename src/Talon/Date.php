@@ -30,7 +30,7 @@ class Date {
 
 	public static function sqlTime($timestamp = null) {
 		if ($timestamp !== null && !is_numeric($timestamp)) {
-			$timestamp = strtotime($timestamp);
+			$timestamp = Time::time($timestamp);
 		}
 
 		return $timestamp ? date('H:i:s', $timestamp) : date('H:i:s');
