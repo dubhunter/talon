@@ -1,6 +1,6 @@
 <?php
 
-namespace Talon\Http;
+namespace Dubhunter\Talon\Http;
 
 use Phalcon\Http\Request;
 

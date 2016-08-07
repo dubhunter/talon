@@ -1,9 +1,9 @@
 <?php
 
-namespace Talon;
+namespace Dubhunter\Talon;
 
-use Phalcon\Text;
 use Phalcon\Filter;
+use Phalcon\Text;
 
 abstract class FilterCollection {
 
@@ -14,7 +14,7 @@ abstract class FilterCollection {
 		foreach (get_class_methods(get_called_class()) as $method) {
 			if ($method != __METHOD__) {
 				$filter->add(Text::uncamelize($method), function ($value) use ($method) {
-					return call_user_func(array(get_called_class(), $method), $value);
+					return call_user_func([get_called_class(), $method], $value);
 				});
 			}
 		}

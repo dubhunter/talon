@@ -1,9 +1,9 @@
 <?php
 
-namespace Talon\Mvc\View\Engine\Volt;
+namespace Dubhunter\Talon\Mvc\View\Engine\Volt;
 
-use Phalcon\Text;
 use Phalcon\Mvc\View\Engine\Volt\Compiler as VoltCompiler;
+use Phalcon\Text;
 
 abstract class FilterCollection {
 

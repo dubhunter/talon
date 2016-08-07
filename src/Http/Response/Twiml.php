@@ -1,9 +1,9 @@
 <?php
 
-namespace Talon\Http\Response;
+namespace Dubhunter\Talon\Http\Response;
 
-use Talon\Http\Response;
-use Talon\Mvc\View\Template;
+use Dubhunter\Talon\Http\Response;
+use Dubhunter\Talon\Mvc\View\Template;
 
 class Twiml extends Response {
 

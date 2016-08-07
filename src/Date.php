@@ -1,6 +1,6 @@
 <?php
 
-namespace Talon;
+namespace Dubhunter\Talon;
 
 class Date {
 

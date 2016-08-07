@@ -1,8 +1,8 @@
 <?php
 
-namespace Talon\Mvc\View;
+namespace Dubhunter\Talon\Mvc\View;
 
-use Phalcon\Mvc\ViewInterface;
+use Phalcon\Mvc\ViewBaseInterface;
 use Phalcon\Mvc\View\Simple as View;
 
 class Template {
@@ -15,13 +15,13 @@ class Template {
 	protected $variables;
 
 	/**
-	 * @param View|ViewInterface $view
+	 * @param View|ViewBaseInterface $view
 	 * @param string $name
 	 */
 	public function __construct($view, $name) {
 		$this->view = $view;
 		$this->name = $name;
-		$this->variables = array();
+		$this->variables = [];
 	}
 
 	/**
@@ -54,11 +54,11 @@ class Template {
 	public function add($key, $value) {
 		$this->validateValue($value);
 		if (!isset($this->variables[$key])) {
-			$this->variables[$key] = array();
+			$this->variables[$key] = [];
 		}
 
 		if (!is_array($this->variables[$key])) {
-			$this->variables[$key] = array($this->variables[$key]);
+			$this->variables[$key] = [$this->variables[$key]];
 		}
 
 		$this->variables[$key][] = $value;

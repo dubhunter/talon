@@ -1,10 +1,10 @@
 <?php
 
-namespace Talon;
+namespace Dubhunter\Talon;
 
 class Http {
 
-	protected static $statusMessages = array(
+	protected static $statusMessages = [
 		100 => 'Continue',
 		101 => 'Switching Protocols',
 		102 => 'Processing', // WebDAV
@@ -75,7 +75,7 @@ class Http {
 		511 => 'Network Authentication Required',
 		598 => 'Network read timeout error',
 		599 => 'Network connect timeout error',
-	);
+	];
 
 	/**
 	 * Returns a messages for a given code

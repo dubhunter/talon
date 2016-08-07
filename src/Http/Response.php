@@ -1,10 +1,10 @@
 <?php
 
-namespace Talon\Http;
+namespace Dubhunter\Talon\Http;
 
+use Dubhunter\Talon\Http;
+use Dubhunter\Talon\Mvc\View\Template;
 use Phalcon\Http\Response as PhalconResponse;
-use Talon\Http;
-use Talon\Mvc\View\Template;
 
 class Response extends PhalconResponse {
 	/**
@@ -75,7 +75,7 @@ class Response extends PhalconResponse {
 	/**
 	 * @var array
 	 */
-	protected static $defaultHeaders = array();
+	protected static $defaultHeaders = [];
 
 	/**
 	 * @var int
@@ -263,7 +263,7 @@ class Response extends PhalconResponse {
 	 * @param int|null $code
 	 * @param array $headers
 	 */
-	public function __construct($content = null, $code = null, $headers = array()) {
+	public function __construct($content = null, $code = null, $headers = []) {
 		parent::__construct();
 
 		if ($content) {

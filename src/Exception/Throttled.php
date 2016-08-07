@@ -1,6 +1,6 @@
 <?php
 
-namespace Talon\Exception;
+namespace Dubhunter\Talon\Exception;
 
 class Throttled extends TooManyRequests {
 
