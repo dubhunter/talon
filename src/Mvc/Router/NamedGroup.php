@@ -7,7 +7,7 @@ use Phalcon\Text;
 
 class NamedGroup extends Group {
 
-	const NSPACE = null;
+	const SPACE = null;
 	const PREFIX = null;
 	const ROUTES = [];
 
@@ -17,8 +17,8 @@ class NamedGroup extends Group {
 		}
 		foreach (static::ROUTES as $route => $controller) {
 			$namespace = '';
-			if (static::NSPACE) {
-				$namespace = static::NSPACE . '\\';
+			if (static::SPACE) {
+				$namespace = static::SPACE . '\\';
 			}
 			$name = implode('-', array_map(function ($name) {
 				$name = Text::uncamelize($name);
