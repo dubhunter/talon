@@ -21,7 +21,6 @@ class Volt extends \Phalcon\Mvc\View\Engine\Volt {
 				return $dir . DIRECTORY_SEPARATOR . $prefix . str_replace(DIRECTORY_SEPARATOR, '%', str_replace($view->getViewsDir(), '', $templatePath)) . '.php';
 			},
 			'compileAlways' => $development,
-			'stat' => $development,
 		]);
 	}
 
