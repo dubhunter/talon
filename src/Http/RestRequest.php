@@ -6,6 +6,10 @@ use Phalcon\Http\Request;
 
 class RestRequest extends Request {
 
+	public function isJson() {
+		return $this->getHeader('CONTENT_TYPE') == 'application/json';
+	}
+
 	public function getJsonRawBody() {
 		return json_decode($this->getRawBody(), true);
 	}
@@ -19,7 +23,7 @@ class RestRequest extends Request {
 	}
 
 	public function getPost($name = null, $filters = null, $defaultValue = null) {
-		if ($this->getHeader('CONTENT_TYPE') == 'application/json') {
+		if ($this->isJson()) {
 			$post = $this->getJsonRawBody();
 			if ($name) {
 				return isset($post[$name]) ? $post[$name] : null;
@@ -30,7 +34,7 @@ class RestRequest extends Request {
 	}
 
 	public function getPut($name = null, $filters = null, $defaultValue = null) {
-		if ($this->getHeader('CONTENT_TYPE') == 'application/json') {
+		if ($this->isJson()) {
 			$put = $this->getJsonRawBody();
 			if ($name) {
 				return isset($put[$name]) ? $put[$name] : null;

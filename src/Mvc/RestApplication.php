@@ -8,6 +8,9 @@ use Dubhunter\Talon\Mvc\View\Template;
 use Phalcon\DiInterface;
 use Phalcon\Mvc\Application;
 
+/**
+ * @property \Dubhunter\Talon\Http\RestRequest $request
+ */
 class RestApplication extends Application {
 
 	/**
@@ -32,7 +35,7 @@ class RestApplication extends Application {
 			case Response::HTTP_UNAUTHORIZED:
 			case Response::HTTP_FORBIDDEN:
 			case Response::HTTP_INTERNAL_SERVER_ERROR:
-				if ($this->request->isAjax() || $response instanceof JsonResponse) {
+				if ($this->request->isAjax() || $this->request->isJson() || $response instanceof JsonResponse) {
 					$response->setContent([
 						'error' => $response->getStatusMessage(),
 					]);
