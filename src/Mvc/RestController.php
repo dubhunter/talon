@@ -4,6 +4,7 @@ namespace Dubhunter\Talon\Mvc;
 
 use Dubhunter\Talon\Http\Response;
 use Dubhunter\Talon\Http\Response\Json as JsonResponse;
+use Dubhunter\Talon\Http\RestRequest;
 use Dubhunter\Talon\Mvc\View\Template;
 use League\Uri\Schemes\Http as HttpUri;
 use Phalcon\Mvc\Controller;
