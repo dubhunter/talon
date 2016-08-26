@@ -3,17 +3,20 @@
 namespace Dubhunter\Talon\Http\Response;
 
 use Dubhunter\Talon\Http\Response;
-use Dubhunter\Talon\Mvc\View\Template;
 
 class Json extends Response {
 
 	/**
-	 * @param string|Template $content
-	 * @return \Phalcon\Http\ResponseInterface|void
+	 * @param mixed $content
+	 * @param int|null $code
+	 * @param array $headers
 	 */
-	public function setContent($content) {
-		$this->setContentType('application/json');
-		$this->setJsonContent($content);
+	public function __construct($content = null, $code = null, $headers = []) {
+		parent::__construct(null, $code, $headers);
+
+		if ($content) {
+			$this->setJsonContent($content);
+		}
 	}
 
 }

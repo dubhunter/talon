@@ -89,26 +89,27 @@ class Response extends PhalconResponse {
 
 	/**
 	 * Get the default headers that will be included in every response
+	 * @return array
 	 */
 	public static function getDefaultHeaders() {
-		return self::$defaultHeaders;
+		return static::$defaultHeaders;
 	}
 
 	/**
 	 * Set the default headers to be included in every response
-	 * @param $headers
+	 * @param array $headers
 	 */
 	public static function setDefaultHeaders($headers) {
-		self::$defaultHeaders = $headers;
+		static::$defaultHeaders = $headers;
 	}
 
 	/**
 	 * Set a default header to be included in every response
-	 * @param $name
-	 * @param $value
+	 * @param string $name
+	 * @param string $value
 	 */
 	public static function addDefaultHeader($name, $value) {
-		self::$defaultHeaders[$name] = $value;
+		static::$defaultHeaders[$name] = $value;
 	}
 
 	/**
@@ -274,7 +275,7 @@ class Response extends PhalconResponse {
 			$this->setStatusCode($code);
 		}
 
-		foreach (array_merge(self::$defaultHeaders, $headers) as $name => $value) {
+		foreach (array_merge(static::$defaultHeaders, $headers) as $name => $value) {
 			$this->setHeader($name, $value);
 		}
 	}
@@ -282,7 +283,7 @@ class Response extends PhalconResponse {
 	/**
 	 * @param int $code
 	 * @param null $message
-	 * @return Response
+	 * @return Response|PhalconResponse
 	 */
 	public function setStatusCode($code, $message = null) {
 		if (!$message) {
