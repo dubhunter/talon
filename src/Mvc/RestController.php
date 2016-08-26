@@ -14,27 +14,12 @@ use Phalcon\Mvc\Controller;
  */
 class RestController extends Controller {
 
-	public function options() {
-		return $this->request->isAjax() || $this->request->isJson() ? JsonResponse::methodNotAllowed() : Response::methodNotAllowed();
-	}
-
-	public function head() {
-		return $this->request->isAjax() || $this->request->isJson() ? JsonResponse::methodNotAllowed() : Response::methodNotAllowed();
-	}
-
-	public function get() {
-		return $this->request->isAjax() || $this->request->isJson() ? JsonResponse::methodNotAllowed() : Response::methodNotAllowed();
-	}
-
-	public function post() {
-		return $this->request->isAjax() || $this->request->isJson() ? JsonResponse::methodNotAllowed() : Response::methodNotAllowed();
-	}
-
-	public function put() {
-		return $this->request->isAjax() || $this->request->isJson() ? JsonResponse::methodNotAllowed() : Response::methodNotAllowed();
-	}
-
-	public function delete() {
+	/**
+	 * @param $name
+	 * @param $args
+	 * @return Response
+	 */
+	public function __call($name, $args) {
 		return $this->request->isAjax() || $this->request->isJson() ? JsonResponse::methodNotAllowed() : Response::methodNotAllowed();
 	}
 
