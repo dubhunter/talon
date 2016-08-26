@@ -10,8 +10,8 @@ class RestRequest extends Request {
 		return $this->getHeader('CONTENT_TYPE') == 'application/json';
 	}
 
-	public function getJsonRawBody() {
-		return json_decode($this->getRawBody(), true);
+	public function getJsonRawBody($associative = true) {
+		parent::getJsonRawBody($associative);
 	}
 
 	public function getQuery($name = null, $filters = null, $defaultValue = null) {
@@ -33,7 +33,7 @@ class RestRequest extends Request {
 		return parent::getPost($name, $filters, $defaultValue);
 	}
 
-	public function getPut($name = null, $filters = null, $defaultValue = null) {
+	public function getPut($name = null, $filters = null, $defaultValue = null, $notAllowEmpty = false, $noRecursive = false) {
 		if ($this->isJson()) {
 			$put = $this->getJsonRawBody();
 			if ($name) {
@@ -41,7 +41,7 @@ class RestRequest extends Request {
 			}
 			return $put;
 		}
-		return parent::getPut($name, $filters, $defaultValue);
+		return parent::getPut($name, $filters, $defaultValue, $notAllowEmpty, $noRecursive);
 	}
 
 }
