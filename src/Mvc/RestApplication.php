@@ -5,6 +5,7 @@ namespace Dubhunter\Talon\Mvc;
 use Dubhunter\Talon\Http\Response;
 use Dubhunter\Talon\Http\Response\Json as JsonResponse;
 use Dubhunter\Talon\Mvc\View\Template;
+use Exception;
 use Phalcon\DiInterface;
 use Phalcon\Mvc\Application;
 
@@ -22,11 +23,22 @@ class RestApplication extends Application {
 	}
 
 	public function handle($uri = null) {
-		/** @var Response $response */
-		$response = parent::handle($uri);
+		$context = [];
+		try {
+			/** @var Response $response */
+			$response = parent::handle($uri);
 
-		if ($response->getContent()) {
-			return $response;
+			if ($response->getContent()) {
+				return $response;
+			}
+		} catch (Exception $e) {
+			$response = new Response();
+			$response->setStatusCode(Response::HTTP_INTERNAL_SERVER_ERROR);
+			$context['exception'] = [
+				'code' => $e->getCode(),
+				'message' => $e->getMessage(),
+				'trace' => $e->getTraceAsString(),
+			];
 		}
 
 		switch ($response->getStatusCode()) {
@@ -43,6 +55,9 @@ class RestApplication extends Application {
 					$template = new Template($this->view, 'error');
 					$template->set('code', $response->getStatusCode());
 					$template->set('message', $response->getStatusMessage());
+					foreach ($context as $k => $v) {
+						$template->set($k, $v);
+					}
 					$response->setContent($template->render());
 				}
 				break;
