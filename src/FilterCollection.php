@@ -12,7 +12,7 @@ abstract class FilterCollection {
 	 */
 	public static function install($filter) {
 		foreach (get_class_methods(get_called_class()) as $method) {
-			if ($method != __METHOD__) {
+			if ($method != __FUNCTION__) {
 				$filter->add(Text::uncamelize($method), function ($value) use ($method) {
 					return call_user_func([get_called_class(), $method], $value);
 				});

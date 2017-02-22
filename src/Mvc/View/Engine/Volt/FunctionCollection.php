@@ -12,7 +12,7 @@ abstract class FunctionCollection {
 	 */
 	public static function install($compiler) {
 		foreach (get_class_methods(get_called_class()) as $method) {
-			if ($method != __METHOD__) {
+			if ($method != __FUNCTION__) {
 				$compiler->addFunction(Text::uncamelize($method), function ($resolvedArgs, $exprArgs) use ($method) {
 					return get_called_class() . '::' . $method . '(' . $resolvedArgs . ')';
 				});
