@@ -7,7 +7,7 @@ use Phalcon\Http\Request;
 class RestRequest extends Request {
 
 	public function isJson() {
-		return $this->getHeader('CONTENT_TYPE') == 'application/json';
+		return strpos($this->getHeader('CONTENT_TYPE'), 'application/json') === 0;
 	}
 
 	public function getJsonRawBody($associative = true) {
