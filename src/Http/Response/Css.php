@@ -12,7 +12,7 @@ class Css extends Response {
 	 * @return \Phalcon\Http\ResponseInterface|void
 	 */
 	public function setContent($content) {
-		$this->setContentType('text/css');
+		$this->setContentType('text/css', 'UTF-8');
 		parent::setContent($content);
 	}
 

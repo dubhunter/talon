@@ -12,7 +12,7 @@ class Js extends Response {
 	 * @return \Phalcon\Http\ResponseInterface|void
 	 */
 	public function setContent($content) {
-		$this->setContentType('application/javascript');
+		$this->setContentType('application/javascript', 'UTF-8');
 		parent::setContent($content);
 	}
 

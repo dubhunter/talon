@@ -14,6 +14,8 @@ class Json extends Response {
 	public function __construct($content = null, $code = null, $headers = []) {
 		parent::__construct(null, $code, $headers);
 
+		$this->setContentType('application/json', 'UTF-8');
+
 		if ($content) {
 			$this->setJsonContent($content);
 		}
