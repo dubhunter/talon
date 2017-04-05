@@ -48,7 +48,7 @@ class RestApplication extends Application {
 			case Response::HTTP_FORBIDDEN:
 			case Response::HTTP_INTERNAL_SERVER_ERROR:
 				if ($this->request->isAjax() || $this->request->isJson() || $response instanceof JsonResponse) {
-					$response->setContent([
+					$response->setJsonContent([
 						'error' => $response->getStatusMessage(),
 					]);
 				} else {
