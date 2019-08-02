@@ -234,7 +234,7 @@ class Response extends PhalconResponse {
 	 * Convenience function to create a 301 response
 	 * @see Response::redirect()
 	 * @static
-	 * @param string $url The url to redirect to
+	 * @param string|array $url The url to redirect to
 	 * @param boolean $externalRedirect Treat the redirect as external
 	 * @return Response
 	 */
@@ -249,7 +249,7 @@ class Response extends PhalconResponse {
 	 * Convenience function to create a 302 response
 	 * @see Response::redirect()
 	 * @static
-	 * @param string $url The url to redirect to
+	 * @param string|array $url The url to redirect to
 	 * @param boolean $externalRedirect Treat the redirect as external
 	 * @return Response HTTP 302 Response with URL
 	 */
