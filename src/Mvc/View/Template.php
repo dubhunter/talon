@@ -28,18 +28,18 @@ class Template {
 	/**
 	 * Validate values for safety
 	 * @param $value
-	 * @throws \Exception
+	 * @throws Exception
 	 */
 	protected function validateValue($value) {
 		if (is_object($value)) {
-			throw new \Exception('Can not set an object on template');
+			throw new Exception('Can not set an object on template');
 		}
 	}
 
 	/**
 	 * Set a given key to a view value
 	 * @param string $key The key to set
-	 * @param string $value The value to set
+	 * @param mixed $value The value to set
 	 * @return void
 	 * @throws Exception
 	 */
@@ -51,7 +51,7 @@ class Template {
 	/**
 	 * Adds a value to a collection, collection will be created if it does not already exist
 	 * @param string $key The collection key
-	 * @param $value
+	 * @param mixed $value
 	 * @throws Exception
 	 */
 	public function add($key, $value) {
