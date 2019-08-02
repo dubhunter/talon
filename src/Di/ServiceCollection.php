@@ -9,16 +9,16 @@ abstract class ServiceCollection {
 	/**
 	 * @var Di
 	 */
-	protected static $di;
+	protected $di;
 
-	/**
-	 * @param Di $di
-	 */
-	public static function install(Di $di) {
-		static::$di = $di;
-		foreach (get_class_methods(get_called_class()) as $method) {
-			if ($method != __FUNCTION__) {
-				$di->setShared($method, call_user_func([get_called_class(), $method]));
+	public function __construct(Di $di) {
+		$this->di = $di;
+	}
+
+	public function install() {
+		foreach (get_class_methods($this) as $method) {
+			if (!in_array($method, [__FUNCTION__, '__construct'])) {
+				$this->di->setShared($method, call_user_func([$this, $method]));
 			}
 		}
 	}
