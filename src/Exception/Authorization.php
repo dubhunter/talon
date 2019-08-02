@@ -2,4 +2,6 @@
 
 namespace Dubhunter\Talon\Exception;
 
-class Authorization extends \Exception {}
+use Exception;
+
+class Authorization extends Exception {}

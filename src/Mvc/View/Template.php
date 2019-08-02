@@ -2,6 +2,7 @@
 
 namespace Dubhunter\Talon\Mvc\View;
 
+use Exception;
 use Phalcon\Mvc\ViewBaseInterface;
 use Phalcon\Mvc\View\Simple as View;
 
@@ -40,6 +41,7 @@ class Template {
 	 * @param string $key The key to set
 	 * @param string $value The value to set
 	 * @return void
+	 * @throws Exception
 	 */
 	public function set($key, $value) {
 		$this->validateValue($value);
@@ -50,6 +52,7 @@ class Template {
 	 * Adds a value to a collection, collection will be created if it does not already exist
 	 * @param string $key The collection key
 	 * @param $value
+	 * @throws Exception
 	 */
 	public function add($key, $value) {
 		$this->validateValue($value);

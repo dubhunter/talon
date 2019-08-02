@@ -2,4 +2,6 @@
 
 namespace Dubhunter\Talon\Exception;
 
-class Forbidden extends \Exception {}
+use Exception;
+
+class Forbidden extends Exception {}

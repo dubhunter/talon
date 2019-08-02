@@ -2,4 +2,6 @@
 
 namespace Dubhunter\Talon\Exception;
 
-class TooManyRequests extends \Exception {}
+use Exception;
+
+class TooManyRequests extends Exception {}

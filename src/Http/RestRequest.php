@@ -14,7 +14,7 @@ class RestRequest extends Request {
 		parent::getJsonRawBody($associative);
 	}
 
-	public function getQuery($name = null, $filters = null, $defaultValue = null) {
+	public function getQuery($name = null, $filters = null, $defaultValue = null, $notAllowEmpty = false, $noRecursive = false) {
 		$query = parent::getQuery($name, $filters, $defaultValue);
 		if (isset($query['_url'])) {
 			unset($query['_url']);
@@ -22,7 +22,7 @@ class RestRequest extends Request {
 		return $query;
 	}
 
-	public function getPost($name = null, $filters = null, $defaultValue = null) {
+	public function getPost($name = null, $filters = null, $defaultValue = null, $notAllowEmpty = false, $noRecursive = false) {
 		if ($this->isJson()) {
 			$post = $this->getJsonRawBody();
 			if ($name) {

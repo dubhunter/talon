@@ -5,6 +5,7 @@ namespace Dubhunter\Talon\Http;
 use Dubhunter\Talon\Http;
 use Dubhunter\Talon\Mvc\View\Template;
 use Phalcon\Http\Response as PhalconResponse;
+use Phalcon\Http\ResponseInterface;
 
 class Response extends PhalconResponse {
 	/**
@@ -310,7 +311,7 @@ class Response extends PhalconResponse {
 
 	/**
 	 * @param string|Template $content
-	 * @return \Phalcon\Http\ResponseInterface|void
+	 * @return ResponseInterface|void
 	 */
 	public function setContent($content) {
 		if ($content instanceof Template) {

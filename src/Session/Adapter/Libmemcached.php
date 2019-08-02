@@ -2,6 +2,8 @@
 
 namespace Dubhunter\Talon\Session\Adapter;
 
+use Phalcon\Session\Exception;
+
 class Libmemcached extends \Phalcon\Session\Adapter\Libmemcached {
 
 	/**
@@ -9,6 +11,7 @@ class Libmemcached extends \Phalcon\Session\Adapter\Libmemcached {
 	 * @param mixed $port
 	 * @param string $prefix
 	 * @param mixed $lifetime
+	 * @throws Exception
 	 */
 	public function __construct($host, $port, $prefix, $lifetime) {
 		parent::__construct([

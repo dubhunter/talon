@@ -3,13 +3,14 @@
 namespace Dubhunter\Talon\Http\Response;
 
 use Dubhunter\Talon\Http\Response;
+use Phalcon\Http\ResponseInterface;
 use Phalcon\Image\Adapter as ImageAdapter;
 
 class Image extends Response {
 
 	/**
 	 * @param ImageAdapter|string $content
-	 * @return \Phalcon\Http\ResponseInterface|void
+	 * @return ResponseInterface|void
 	 */
 	public function setContent($content) {
 		if ($content instanceof ImageAdapter) {

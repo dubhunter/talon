@@ -2,4 +2,6 @@
 
 namespace Dubhunter\Talon\Exception;
 
-class ServerError extends \Exception {}
+use Exception;
+
+class ServerError extends Exception {}

@@ -11,7 +11,7 @@ use Phalcon\Mvc\Controller;
 
 
 /**
- * @property \Dubhunter\Talon\Http\RestRequest $request
+ * @property RestRequest $request
  */
 class RestController extends Controller {
 

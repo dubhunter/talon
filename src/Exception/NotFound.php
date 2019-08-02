@@ -2,4 +2,6 @@
 
 namespace Dubhunter\Talon\Exception;
 
-class NotFound extends \Exception {}
+use Exception;
+
+class NotFound extends Exception {}

@@ -4,13 +4,15 @@ namespace Dubhunter\Talon\Mvc;
 
 use Dubhunter\Talon\Http\Response;
 use Dubhunter\Talon\Http\Response\Json as JsonResponse;
+use Dubhunter\Talon\Http\RestRequest;
 use Dubhunter\Talon\Mvc\View\Template;
 use Exception;
 use Phalcon\DiInterface;
+use Phalcon\Http\ResponseInterface;
 use Phalcon\Mvc\Application;
 
 /**
- * @property \Dubhunter\Talon\Http\RestRequest $request
+ * @property RestRequest $request
  */
 class RestApplication extends Application {
 
@@ -22,6 +24,11 @@ class RestApplication extends Application {
 		$this->useImplicitView(false);
 	}
 
+	/**
+	 * @param null $uri
+	 * @return bool|Response|ResponseInterface
+	 * @throws Exception
+	 */
 	public function handle($uri = null) {
 		$context = [];
 		try {
